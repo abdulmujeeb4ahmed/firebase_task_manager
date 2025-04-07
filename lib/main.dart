@@ -1,7 +1,6 @@
-// lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; // Your generated Firebase config file
+import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/// AuthWrapper listens to authentication state to determine which screen to show.
 class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,7 +37,6 @@ class AuthWrapper extends StatelessWidget {
   }
 }
 
-/// LoginScreen allows users to sign in or register using email and password.
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -131,8 +128,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-/// TaskListScreen shows the list of tasks for the current user and allows adding,
-/// marking as complete/incomplete, and deleting tasks.
 class TaskListScreen extends StatefulWidget {
   @override
   _TaskListScreenState createState() => _TaskListScreenState();
@@ -189,7 +184,6 @@ class _TaskListScreenState extends State<TaskListScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Input field and button to add a new task.
             Row(
               children: [
                 Expanded(
@@ -203,7 +197,6 @@ class _TaskListScreenState extends State<TaskListScreen> {
               ],
             ),
             const SizedBox(height: 20),
-            // StreamBuilder to display tasks in real time.
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
                 stream: _tasksCollection.snapshots(),
